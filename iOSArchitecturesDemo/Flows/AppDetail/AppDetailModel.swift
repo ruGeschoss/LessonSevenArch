@@ -46,6 +46,11 @@ final class AppDetailModelFactory {
     return outputFormatter.string(from: initial)
   }
   
+}
+
+// MARK: - Create models
+extension AppDetailModelFactory {
+  
   func headerModel() -> AppDetailHeaderModel {
     return AppDetailHeaderModel(appName: app.appName,
                                 company: app.company,
@@ -59,4 +64,5 @@ final class AppDetailModelFactory {
                                      releaseDate: stringDate,
                                      releaseNote: app.releaseNotes)
   }
+  
 }

@@ -11,8 +11,10 @@ import UIKit
 final class AppDetailViewController: UIViewController {
   
   let app: ITunesApp
+  lazy var factory = AppDetailModelFactory(app: app)
   
-  lazy var headerViewController = AppDetailHeaderViewController(app: self.app)
+  lazy var headerViewController = AppDetailHeaderViewController(model: factory.headerModel())
+  lazy var releaseInfoViewController = AppDetailReleaseInfoViewController(model: factory.releaseInfoModel())
   
   init(app: ITunesApp) {
     self.app = app
@@ -50,19 +52,16 @@ final class AppDetailViewController: UIViewController {
   }
   
   private func addDescriptionViewController() {
-    // TODO: ДЗ, сделать другие сабмодули
-    let descriptionViewController = UIViewController()
+    self.addChild(releaseInfoViewController)
+    self.view.addSubview(releaseInfoViewController.view)
+    releaseInfoViewController.didMove(toParent: self)
     
-    self.addChild(descriptionViewController)
-    self.view.addSubview(descriptionViewController.view)
-    descriptionViewController.didMove(toParent: self)
-    
-    descriptionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    releaseInfoViewController.view.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      descriptionViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
-      descriptionViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-      descriptionViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-      descriptionViewController.view.heightAnchor.constraint(equalToConstant: 250.0)
+      releaseInfoViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
+      releaseInfoViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+      releaseInfoViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+//      releaseInfoViewController.view.heightAnchor.constraint(equalToConstant: 250.0)
     ])
   }
 }

@@ -160,6 +160,7 @@
 		E0E1D2A62034A36C0011E01A /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				F8114FC022A3E5EE00102830 /* AppCellModel.swift */,
 				B7A8293926700D7A002FAD45 /* Presenter */,
 				B7A8293826700D74002FAD45 /* Builder */,
 				F8A97B3622498F0C00FB2C0E /* View */,
@@ -170,9 +171,9 @@
 		E0E1D2A72034A3780011E01A /* AppDetail */ = {
 			isa = PBXGroup;
 			children = (
+				B7A8293E2670D684002FAD45 /* AppDetailModel.swift */,
 				F8114FC222A3E74E00102830 /* View */,
 				F8114FC322A3E75300102830 /* Controller */,
-				B7A8293E2670D684002FAD45 /* AppDetailModel.swift */,
 			);
 			path = AppDetail;
 			sourceTree = "<group>";
@@ -309,7 +310,6 @@
 				E0E1D2942034A3350011E01A /* SearchViewController.swift */,
 				F8114FBD22A3DBF400102830 /* SearchView.swift */,
 				F8A97B342249898E00FB2C0E /* AppCell.swift */,
-				F8114FC022A3E5EE00102830 /* AppCellModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
