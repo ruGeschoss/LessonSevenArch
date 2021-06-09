@@ -16,6 +16,11 @@
 		B7A8293B26702F4A002FAD45 /* AppDetailReleaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8293A26702F4A002FAD45 /* AppDetailReleaseInfoViewController.swift */; };
 		B7A8293D26702F65002FAD45 /* AppDetailReleaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8293C26702F65002FAD45 /* AppDetailReleaseInfoView.swift */; };
 		B7A8293F2670D684002FAD45 /* AppDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8293E2670D684002FAD45 /* AppDetailModel.swift */; };
+		B7A829412670FBCF002FAD45 /* AppDetailScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829402670FBCF002FAD45 /* AppDetailScreenshotsViewController.swift */; };
+		B7A829432670FBE2002FAD45 /* AppDetailScreenshotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829422670FBE2002FAD45 /* AppDetailScreenshotsView.swift */; };
+		B7A8294526710732002FAD45 /* AppScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8294426710732002FAD45 /* AppScreenshotsCell.swift */; };
+		B7A8294926716571002FAD45 /* AppDetailSingleScreenshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8294826716571002FAD45 /* AppDetailSingleScreenshotViewController.swift */; };
+		B7A8294B26717B0D002FAD45 /* AppDetailFullScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8294A26717B0D002FAD45 /* AppDetailFullScreenshotsViewController.swift */; };
 		C28C96DB36E79D637A8DED1C /* Pods_iOSArchitecturesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEA6AF9F424A0D5873D2723 /* Pods_iOSArchitecturesDemo.framework */; };
 		E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D2922034A3350011E01A /* AppDelegate.swift */; };
 		E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D2942034A3350011E01A /* SearchViewController.swift */; };
@@ -50,6 +55,11 @@
 		B7A8293A26702F4A002FAD45 /* AppDetailReleaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailReleaseInfoViewController.swift; sourceTree = "<group>"; };
 		B7A8293C26702F65002FAD45 /* AppDetailReleaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailReleaseInfoView.swift; sourceTree = "<group>"; };
 		B7A8293E2670D684002FAD45 /* AppDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailModel.swift; sourceTree = "<group>"; };
+		B7A829402670FBCF002FAD45 /* AppDetailScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsViewController.swift; sourceTree = "<group>"; };
+		B7A829422670FBE2002FAD45 /* AppDetailScreenshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsView.swift; sourceTree = "<group>"; };
+		B7A8294426710732002FAD45 /* AppScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotsCell.swift; sourceTree = "<group>"; };
+		B7A8294826716571002FAD45 /* AppDetailSingleScreenshotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailSingleScreenshotViewController.swift; sourceTree = "<group>"; };
+		B7A8294A26717B0D002FAD45 /* AppDetailFullScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailFullScreenshotsViewController.swift; sourceTree = "<group>"; };
 		E0E1D28F2034A3350011E01A /* iOSArchitecturesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSArchitecturesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E1D2922034A3350011E01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E1D2942034A3350011E01A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +253,8 @@
 			children = (
 				B7A8292B266FF63D002FAD45 /* AppDetailHeaderView.swift */,
 				B7A8293C26702F65002FAD45 /* AppDetailReleaseInfoView.swift */,
+				B7A829422670FBE2002FAD45 /* AppDetailScreenshotsView.swift */,
+				B7A8294426710732002FAD45 /* AppScreenshotsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +265,9 @@
 				E0E1D3D0203C48D70011E01A /* AppDetailViewController.swift */,
 				B7A8292D266FF721002FAD45 /* AppDetailHeaderViewController.swift */,
 				B7A8293A26702F4A002FAD45 /* AppDetailReleaseInfoViewController.swift */,
+				B7A829402670FBCF002FAD45 /* AppDetailScreenshotsViewController.swift */,
+				B7A8294826716571002FAD45 /* AppDetailSingleScreenshotViewController.swift */,
+				B7A8294A26717B0D002FAD45 /* AppDetailFullScreenshotsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -447,12 +462,15 @@
 			files = (
 				E0E1D399203AE62E0011E01A /* ITunesApp.swift in Sources */,
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
+				B7A8294B26717B0D002FAD45 /* AppDetailFullScreenshotsViewController.swift in Sources */,
 				B7A82931267002DF002FAD45 /* SearchPresenter.swift in Sources */,
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
 				F8A1E03C2248382F00FE6448 /* Monads.swift in Sources */,
 				B7A8293F2670D684002FAD45 /* AppDetailModel.swift in Sources */,
 				B7A8292E266FF721002FAD45 /* AppDetailHeaderViewController.swift in Sources */,
+				B7A829412670FBCF002FAD45 /* AppDetailScreenshotsViewController.swift in Sources */,
 				B7A8293726700CC3002FAD45 /* SearchModuleBuilder.swift in Sources */,
+				B7A8294926716571002FAD45 /* AppDetailSingleScreenshotViewController.swift in Sources */,
 				B7A829352670045F002FAD45 /* SearchViewOutput.swift in Sources */,
 				E0E1D3D4203C4AA50011E01A /* UIColor+Extensions.swift in Sources */,
 				B7A8292C266FF63D002FAD45 /* AppDetailHeaderView.swift in Sources */,
@@ -469,6 +487,8 @@
 				E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */,
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
 				F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */,
+				B7A8294526710732002FAD45 /* AppScreenshotsCell.swift in Sources */,
+				B7A829432670FBE2002FAD45 /* AppDetailScreenshotsView.swift in Sources */,
 				B7A8293D26702F65002FAD45 /* AppDetailReleaseInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

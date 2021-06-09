@@ -21,6 +21,10 @@ struct AppDetailReleaseInfoModel {
   let releaseNote: String?
 }
 
+struct AppDetailScreenshotsModel {
+  let screenshots: [String]
+}
+
 final class AppDetailModelFactory {
   
   private let app: ITunesApp
@@ -63,6 +67,10 @@ extension AppDetailModelFactory {
     return AppDetailReleaseInfoModel(releaseVersion: app.version,
                                      releaseDate: stringDate,
                                      releaseNote: app.releaseNotes)
+  }
+  
+  func screenshotModel() -> AppDetailScreenshotsModel {
+    return AppDetailScreenshotsModel(screenshots: app.screenshotUrls)
   }
   
 }
