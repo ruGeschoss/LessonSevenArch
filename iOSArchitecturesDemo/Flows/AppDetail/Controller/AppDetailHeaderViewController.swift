@@ -13,7 +13,7 @@ final class AppDetailHeaderViewController: UIViewController {
   
   // MARK: - Properties
   
-  private let app: ITunesApp
+  private let model: AppDetailHeaderModel
   
   private let imageDownloader = ImageDownloader()
   
@@ -22,8 +22,8 @@ final class AppDetailHeaderViewController: UIViewController {
   }
   
   // MARK: - Init
-  init(app: ITunesApp) {
-    self.app = app
+  init(model: AppDetailHeaderModel) {
+    self.model = model
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -45,13 +45,13 @@ final class AppDetailHeaderViewController: UIViewController {
   // MARK: - Private
   private func fillData() {
     self.downloadImage()
-    self.appDetailHeaderView.titleLabel.text = app.appName
-    self.appDetailHeaderView.subtitleLabel.text = app.company
-    self.appDetailHeaderView.ratingLabel.text = app.averageRating.flatMap { "\($0)" }
+    self.appDetailHeaderView.titleLabel.text = model.appName
+    self.appDetailHeaderView.subtitleLabel.text = model.company
+    self.appDetailHeaderView.ratingLabel.text = model.averageRating
   }
   
   private func downloadImage() {
-    guard let url = self.app.iconUrl else { return }
+    guard let url = self.model.imageUrl else { return }
     self.imageDownloader.getImage(fromUrl: url) { [weak self] (image, _) in
       self?.appDetailHeaderView.imageView.image = image
     }

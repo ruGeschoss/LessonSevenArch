@@ -11,6 +11,10 @@ import UIKit
 
 final class SearchViewController: UIViewController {
   
+  private enum Constants {
+    static let navigationTitle: String = "Search via iTunes"
+  }
+  
   // MARK: - Private Properties
   private var searchView: SearchView {
     return self.view as! SearchView
@@ -22,10 +26,6 @@ final class SearchViewController: UIViewController {
       self.searchView.tableView.reloadData()
       self.searchView.searchBar.resignFirstResponder()
     }
-  }
-  
-  private struct Constants {
-    static let reuseIdentifier = "reuseId"
   }
   
   private let presenter: SearchViewOutput
@@ -48,8 +48,9 @@ final class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.title = Constants.navigationTitle
     self.searchView.searchBar.delegate = self
-    self.searchView.tableView.register(AppCell.self, forCellReuseIdentifier: Constants.reuseIdentifier)
+    self.searchView.tableView.register(AppCell.self, forCellReuseIdentifier: AppCell.reuseID)
     self.searchView.tableView.delegate = self
     self.searchView.tableView.dataSource = self
   }
@@ -93,7 +94,7 @@ extension SearchViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: Constants.reuseIdentifier, for: indexPath)
+    let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: AppCell.reuseID, for: indexPath)
     guard let cell = dequeuedCell as? AppCell else {
       return dequeuedCell
     }

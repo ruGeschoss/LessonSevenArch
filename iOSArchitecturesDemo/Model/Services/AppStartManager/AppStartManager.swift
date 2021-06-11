@@ -10,6 +10,15 @@ import UIKit
 
 final class AppStartManager {
   
+  private enum Constants {
+    static let appSearchTabBarItem = UITabBarItem(title: "Apps",
+                                                  image: nil,
+                                                  selectedImage: nil)
+    static let musicSearchTabBarItem = UITabBarItem(title: "Music",
+                                                    image: nil,
+                                                    selectedImage: nil)
+  }
+  
   var window: UIWindow?
   
   init(window: UIWindow?) {
@@ -17,22 +26,32 @@ final class AppStartManager {
   }
   
   func start() {
-    let rootVC = SearchModuleBuilder.build()
-    rootVC.navigationItem.title = "Search via iTunes"
+    let navVC = createNavController()
+    let navVC2 = createNavController()
     
-    let navVC = self.configuredNavigationController
-    navVC.viewControllers = [rootVC]
+    let musicVC = MusicSearchModuleBuilder.build()
+    let appsVC = SearchModuleBuilder.build()
     
-    window?.rootViewController = navVC
+    navVC.viewControllers = [musicVC]
+    navVC2.viewControllers = [appsVC]
+    navVC.tabBarItem = Constants.musicSearchTabBarItem
+    navVC2.tabBarItem = Constants.appSearchTabBarItem
+    
+    let tabbar = UITabBarController()
+    tabbar.viewControllers = [navVC, navVC2]
+    tabbar.tabBar.tintColor = .white
+    tabbar.tabBar.barTintColor = .black
+    
+    window?.rootViewController = tabbar
     window?.makeKeyAndVisible()
   }
   
-  private lazy var configuredNavigationController: UINavigationController = {
+  private func createNavController() -> UINavigationController {
     let navVC = UINavigationController()
     navVC.navigationBar.barTintColor = UIColor.varna
     navVC.navigationBar.isTranslucent = false
     navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     return navVC
-  }()
+  }
 }
