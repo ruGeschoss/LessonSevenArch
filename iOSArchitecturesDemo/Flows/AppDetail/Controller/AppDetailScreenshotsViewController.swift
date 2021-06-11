@@ -37,7 +37,7 @@ final class AppDetailScreenshotsViewController: UIViewController {
     appDetailScreenshotsView.collectionView.delegate = self
     appDetailScreenshotsView.collectionView.dataSource = self
     appDetailScreenshotsView.collectionView
-      .register(AppScreenshotsCell.self, forCellWithReuseIdentifier: "AppScreenshotsCell")
+      .register(AppScreenshotsCell.self, forCellWithReuseIdentifier: AppScreenshotsCell.reuseID)
   }
   
 }
@@ -65,7 +65,7 @@ extension AppDetailScreenshotsViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppScreenshotsCell",
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppScreenshotsCell.reuseID,
                                                   for: indexPath)
     guard let screenshotCell = cell as? AppScreenshotsCell else { return cell }
     ImageDownloader().getImage(fromUrl: model.screenshots[indexPath.row]) { (image, _) in

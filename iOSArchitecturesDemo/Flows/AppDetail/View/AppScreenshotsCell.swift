@@ -9,9 +9,6 @@
 import UIKit
 
 final class AppScreenshotsCell: UICollectionViewCell {
-  override var reuseIdentifier: String? {
-    return "AppScreenshotsCell"
-  }
   
   private let screenshotImageView: UIImageView = {
     let imageView = UIImageView()
