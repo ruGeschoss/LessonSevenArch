@@ -11,6 +11,10 @@ import UIKit
 
 final class SearchViewController: UIViewController {
   
+  private enum Constants {
+    static let navigationTitle: String = "Search via iTunes"
+  }
+  
   // MARK: - Private Properties
   private var searchView: SearchView {
     return self.view as! SearchView
@@ -44,6 +48,7 @@ final class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.title = Constants.navigationTitle
     self.searchView.searchBar.delegate = self
     self.searchView.tableView.register(AppCell.self, forCellReuseIdentifier: AppCell.reuseID)
     self.searchView.tableView.delegate = self
