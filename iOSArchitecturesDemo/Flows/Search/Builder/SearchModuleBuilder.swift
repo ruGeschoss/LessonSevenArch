@@ -10,11 +10,13 @@ import UIKit
 
 final class SearchModuleBuilder {
   
-  static func build() -> (UIViewController & SearchViewInput) {
-    let presenter = SearchPresenter()
-    let searchController = SearchViewController(presenter: presenter)
-    presenter.viewInput = searchController
-    return searchController
+  static func build() -> UIViewController {
+    let searchService = ITunesSearchService()
+    let downloadAppsService = FakeDownloadAppsService()
+    let viewModel = SearchViewModel(searchService: searchService, downloadAppsService: downloadAppsService)
+    let viewController = SearchViewController(viewModel: viewModel)
+    viewModel.viewController = viewController
+    return viewController
   }
   
 }
