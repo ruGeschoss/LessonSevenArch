@@ -72,14 +72,6 @@ final class AppCell: UITableViewCell {
         self.configureUI()
     }
     
-    // MARK: - Methods
-    
-    func configure(with cellModel: AppCellModel) {
-        self.titleLabel.text = cellModel.title
-        self.subtitleLabel.text = cellModel.subtitle
-        self.ratingLabel.text = cellModel.rating
-    }
-    
     // MARK: - UI
     
     override func prepareForReuse() {

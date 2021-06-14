@@ -20,7 +20,7 @@ final class SearchViewController: UIViewController {
     return self.view as! SearchView
   }
   
-  var searchResults = [ITunesApp]() {
+  var searchResults = [SearchAppCellModel]() {
     didSet {
       self.searchView.tableView.isHidden = false
       self.searchView.tableView.reloadData()
@@ -28,10 +28,10 @@ final class SearchViewController: UIViewController {
     }
   }
   
-  private let presenter: SearchViewOutput
+  private let viewModel: SearchViewModel
   
-  init(presenter: SearchViewOutput) {
-    self.presenter = presenter
+  init(viewModel: SearchViewModel) {
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -47,6 +47,8 @@ final class SearchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.bindViewModel()
+    
     self.navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.title = Constants.navigationTitle
     self.searchView.searchBar.delegate = self
@@ -60,27 +62,37 @@ final class SearchViewController: UIViewController {
     self.throbber(show: false)
   }
   
+  private func bindViewModel() {
+    self.viewModel.isLoading.addObserver(self) { [weak self] (isLoading, _) in
+      self?.throbber(show: isLoading)
+    }
+    self.viewModel.error.addObserver(self) { [weak self] (error, _) in
+      if let error = error {
+        self?.showError(error: error)
+      }
+    }
+    self.viewModel.showEmptyResults.addObserver(self) { [weak self] (showEmptyResults, _) in
+      self?.searchView.emptyResultView.isHidden = !showEmptyResults
+      self?.searchView.tableView.isHidden = showEmptyResults
+    }
+    self.viewModel.cellModels.addObserver(self) { [weak self] (searchResults, _) in
+      self?.searchResults = searchResults
+    }
+  }
+  
 }
 
 // MARK: - SearchViewInput
-extension SearchViewController: SearchViewInput {
+extension SearchViewController {
   
-  func hideNoResults() {
-    self.searchView.emptyResultView.isHidden = true
-  }
-  
-  func showNoResults() {
-    self.searchView.emptyResultView.isHidden = false
-  }
-  
-  func showError(error: Error) {
+  private func showError(error: Error) {
     let alert = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
     let actionOk = UIAlertAction(title: "OK", style: .cancel, handler: nil)
     alert.addAction(actionOk)
     self.present(alert, animated: true, completion: nil)
   }
   
-  func throbber(show: Bool) {
+  private func throbber(show: Bool) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = show
   }
   
@@ -99,9 +111,27 @@ extension SearchViewController: UITableViewDataSource {
       return dequeuedCell
     }
     let app = self.searchResults[indexPath.row]
-    let cellModel = AppCellModelFactory.cellModel(from: app)
-    cell.configure(with: cellModel)
+    configure(cell: cell, with: app)
     return cell
+  }
+  
+  private func configure(cell: AppCell, with app: SearchAppCellModel) {
+    cell.onDownloadButtonTap = { [weak self] in
+      self?.viewModel.didTapDownloadApp(app)
+    }
+    cell.titleLabel.text = app.appName
+    cell.subtitleLabel.text = app.company
+    cell.ratingLabel.text = app.averageRating >>- { "\($0)" }
+    
+    switch app.downloadState {
+    case .notStarted:
+      cell.downloadProgressLabel.text = nil
+    case .inProgress(let progress):
+      let progressToShow = round(progress * 100.0) / 100.0
+      cell.downloadProgressLabel.text = "\(progressToShow)"
+    case .downloaded:
+      cell.downloadProgressLabel.text = "Загружено"
+    }
   }
 }
 
@@ -110,8 +140,8 @@ extension SearchViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let app = searchResults[indexPath.row]
-    presenter.viewDidSelectApp(app)
+    let model = searchResults[indexPath.row]
+    viewModel.didSelectApp(model)
   }
 }
 
@@ -127,6 +157,6 @@ extension SearchViewController: UISearchBarDelegate {
       searchBar.resignFirstResponder()
       return
     }
-    presenter.viewDidSearch(with: query)
+    viewModel.search(for: query)
   }
 }
