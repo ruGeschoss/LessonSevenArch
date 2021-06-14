@@ -35,7 +35,31 @@ final class AppCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 12.0)
         return label
     }()
+  
+    private(set) lazy var downloadButton: UIButton = {
+      let button = UIButton()
+      button.translatesAutoresizingMaskIntoConstraints = false
+      button.addTarget(self, action: #selector(didTapOnDownload), for: .touchUpInside)
+      button.titleLabel?.font = .systemFont(ofSize: 14)
+      button.setTitleColor(.black, for: .normal)
+      button.setTitle("Download", for: .normal)
+      return button
+    }()
     
+    private(set) lazy var downloadProgressLabel: UILabel = {
+      let label = UILabel()
+      label.translatesAutoresizingMaskIntoConstraints = false
+      label.textColor = .red
+      label.font = UIFont.systemFont(ofSize: 12.0)
+      return label
+    }()
+  
+    var onDownloadButtonTap: (() -> Void)?
+  
+    @objc func didTapOnDownload() {
+      self.onDownloadButtonTap?()
+    }
+  
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -66,14 +90,15 @@ final class AppCell: UITableViewCell {
         self.addTitleLabel()
         self.addSubtitleLabel()
         self.addRatingLabel()
+      self.addDownloadButton()
+      self.addDownloadProgressLabel()
     }
     
     private func addTitleLabel() {
         self.contentView.addSubview(self.titleLabel)
         NSLayoutConstraint.activate([
             self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8.0),
-            self.titleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0),
-            self.titleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -40.0)
+            self.titleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0)
             ])
     }
     
@@ -81,8 +106,7 @@ final class AppCell: UITableViewCell {
         self.contentView.addSubview(self.subtitleLabel)
         NSLayoutConstraint.activate([
             self.subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 4.0),
-            self.subtitleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0),
-            self.subtitleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -40.0)
+            self.subtitleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0)
             ])
     }
     
@@ -90,8 +114,25 @@ final class AppCell: UITableViewCell {
         self.contentView.addSubview(self.ratingLabel)
         NSLayoutConstraint.activate([
             self.ratingLabel.topAnchor.constraint(equalTo: self.subtitleLabel.bottomAnchor, constant: 4.0),
-            self.ratingLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0),
-            self.ratingLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -40.0)
+            self.ratingLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0)
             ])
+    }
+  
+    private func addDownloadButton() {
+      self.contentView.addSubview(self.downloadButton)
+      NSLayoutConstraint.activate([
+        downloadButton.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
+        downloadButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12),
+        downloadButton.leadingAnchor.constraint(greaterThanOrEqualTo: self.titleLabel.trailingAnchor)
+      ])
+    }
+    
+    private func addDownloadProgressLabel() {
+      self.contentView.addSubview(downloadProgressLabel)
+      NSLayoutConstraint.activate([
+        downloadProgressLabel.topAnchor.constraint(equalTo: downloadButton.bottomAnchor),
+        downloadProgressLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8),
+        downloadProgressLabel.centerXAnchor.constraint(equalTo: downloadButton.centerXAnchor)
+      ])
     }
 }
