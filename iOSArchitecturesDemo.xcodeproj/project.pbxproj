@@ -30,6 +30,8 @@
 		B7A8295D2673B7E7002FAD45 /* +CollectionVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8295C2673B7E7002FAD45 /* +CollectionVIewCell.swift */; };
 		B7A8295F2673CA1C002FAD45 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8295E2673CA1C002FAD45 /* MusicTableViewCell.swift */; };
 		B7A829612673CDBA002FAD45 /* MusicCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829602673CDBA002FAD45 /* MusicCellModelFactory.swift */; };
+		B7A829742677F530002FAD45 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829732677F530002FAD45 /* SearchRouter.swift */; };
+		B7A829762677F576002FAD45 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829752677F576002FAD45 /* SearchInteractor.swift */; };
 		C28C96DB36E79D637A8DED1C /* Pods_iOSArchitecturesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEA6AF9F424A0D5873D2723 /* Pods_iOSArchitecturesDemo.framework */; };
 		E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D2922034A3350011E01A /* AppDelegate.swift */; };
 		E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D2942034A3350011E01A /* SearchViewController.swift */; };
@@ -78,6 +80,8 @@
 		B7A8295C2673B7E7002FAD45 /* +CollectionVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+CollectionVIewCell.swift"; sourceTree = "<group>"; };
 		B7A8295E2673CA1C002FAD45 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		B7A829602673CDBA002FAD45 /* MusicCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellModelFactory.swift; sourceTree = "<group>"; };
+		B7A829732677F530002FAD45 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		B7A829752677F576002FAD45 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		E0E1D28F2034A3350011E01A /* iOSArchitecturesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSArchitecturesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E1D2922034A3350011E01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E1D2942034A3350011E01A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				B7A8293926700D7A002FAD45 /* Presenter */,
 				B7A8293826700D74002FAD45 /* Builder */,
 				F8A97B3622498F0C00FB2C0E /* View */,
+				B7A829732677F530002FAD45 /* SearchRouter.swift */,
+				B7A829752677F576002FAD45 /* SearchInteractor.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				B7A829512673B003002FAD45 /* MusicSearchModuleBuilder.swift in Sources */,
 				E0E1D358203ADC590011E01A /* NetworkManager.swift in Sources */,
 				E0E1D39C203AE6420011E01A /* ITunesSong.swift in Sources */,
+				B7A829762677F576002FAD45 /* SearchInteractor.swift in Sources */,
 				B7A8293326700446002FAD45 /* SearchViewInput.swift in Sources */,
 				E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */,
 				E0E1D39F203AE7400011E01A /* ImageDownloader.swift in Sources */,
@@ -555,6 +562,7 @@
 				B7A829592673B259002FAD45 /* MusicSearchPresenterInterface.swift in Sources */,
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
 				F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */,
+				B7A829742677F530002FAD45 /* SearchRouter.swift in Sources */,
 				B7A8294526710732002FAD45 /* AppScreenshotsCell.swift in Sources */,
 				B7A829432670FBE2002FAD45 /* AppDetailScreenshotsView.swift in Sources */,
 				B7A8293D26702F65002FAD45 /* AppDetailReleaseInfoView.swift in Sources */,
