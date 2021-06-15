@@ -11,27 +11,34 @@ import UIKit
 final class MusicSearchPresenter {
   
   weak var controller: (UIViewController & MusicSearchControllerInterface)?
-  
-  private lazy var searchService = ITunesSearchService()
-  private lazy var imageLoader = ImageDownloader()
+  private let interactor: MusicSearchInteractorInterface
+  private let router: MusicSearchRouterInterface
+
+  init(interactor: MusicSearchInteractorInterface, router: MusicSearchRouterInterface) {
+    self.interactor = interactor
+    self.router = router
+  }
   
   private func requestSongs(with query: String) {
-    self.searchService.getSongs(forQuery: query) { [weak self] result in
+    interactor.getSongs(forQuery: query) { [weak self] result in
       guard let self = self else { return }
       self.controller?.networkActivityIndicator(isOn: false)
-      result
-        .withValue { songs in
-          guard !songs.isEmpty else {
-            self.controller?.showEmptyResult()
-            return
-          }
-          self.controller?.searchResults = songs
-          self.controller?.hideEmptyResult()
+      switch result {
+      case let .success(songs):
+        guard !songs.isEmpty else {
+          self.controller?.showEmptyResult()
+          return
         }
-        .withError {
-          self.controller?.showError(error: $0)
-        }
+        self.controller?.searchResults = songs
+        self.controller?.hideEmptyResult()
+      case let .failure(error):
+        self.controller?.showError(error: error)
+      }
     }
+  }
+
+  private func getImageFromUrl(url: String?, completion: @escaping (Data?) -> Void) {
+    interactor.loadImage(url: url, completion: completion)
   }
   
 }
@@ -39,7 +46,7 @@ final class MusicSearchPresenter {
 extension MusicSearchPresenter: MusicSearchPresenterInterface {
   
   func didSelectTrack(track: ITunesSong) {
-    print("Did select \(track.trackName)")
+    router.pushMusicPlayer()
   }
   
   func shouldSearchWith(query: String) {
@@ -48,11 +55,7 @@ extension MusicSearchPresenter: MusicSearchPresenterInterface {
   }
   
   func loadImage(url: String?, completion: @escaping (Data?) -> Void) {
-    guard let url = url else { return }
-    imageLoader.getImage(fromUrl: url) { image, _ in
-      guard let image = image else { return }
-      completion(image.pngData())
-    }
+    getImageFromUrl(url: url, completion: completion)
   }
   
 }
