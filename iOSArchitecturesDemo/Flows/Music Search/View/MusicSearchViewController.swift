@@ -121,7 +121,7 @@ extension MusicSearchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     searchView.tableView.deselectRow(at: indexPath, animated: true)
     let selectedTrack = searchResults[indexPath.row]
-    presenter.didSelectTrack(track: selectedTrack)
+    presenter.didSelectTrack(track: selectedTrack, allTracks: searchResults)
   }
   
 }

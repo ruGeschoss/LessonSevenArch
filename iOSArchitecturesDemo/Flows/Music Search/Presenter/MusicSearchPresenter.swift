@@ -45,8 +45,8 @@ final class MusicSearchPresenter {
 
 extension MusicSearchPresenter: MusicSearchPresenterInterface {
   
-  func didSelectTrack(track: ITunesSong) {
-    router.pushMusicPlayer()
+  func didSelectTrack(track: ITunesSong, allTracks: [ITunesSong]) {
+    router.pushMusicPlayer(withTrack: track, allTracks: allTracks)
   }
   
   func shouldSearchWith(query: String) {

@@ -9,15 +9,15 @@
 import UIKit
 
 protocol MusicSearchRouterInterface {
-  func pushMusicPlayer()
+  func pushMusicPlayer(withTrack: ITunesSong, allTracks: [ITunesSong])
 }
 
 final class MusicSearchRouter: MusicSearchRouterInterface {
 
   weak var controller: UIViewController?
 
-  func pushMusicPlayer() {
-    let musicVC = UIViewController()
+  func pushMusicPlayer(withTrack: ITunesSong, allTracks: [ITunesSong]) {
+    let musicVC = MusicPlayerBuilder.build(currentTrack: withTrack, allTracks: allTracks)
     controller?.present(musicVC, animated: true)
   }
 

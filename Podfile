@@ -7,6 +7,6 @@ target 'iOSArchitecturesDemo' do
 
   # Pods for iOSArchitecturesDemo
   pod 'Alamofire', '~> 4.6'
-  pod 'RxSwift', '6.2.0'
-  pod 'RxCocoa', '6.2.0'
+  #pod 'RxSwift', '6.2.0'
+  #pod 'RxCocoa', '6.2.0'
 end
