@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MusicSearchPresenterInterface {
-  func didSelectTrack(track: ITunesSong)
+  func didSelectTrack(track: ITunesSong, allTracks: [ITunesSong])
   func shouldSearchWith(query: String)
   func loadImage(url: String?, completion: @escaping (Data?) -> Void)
 }

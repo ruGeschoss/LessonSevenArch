@@ -32,6 +32,15 @@
 		B7A829612673CDBA002FAD45 /* MusicCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829602673CDBA002FAD45 /* MusicCellModelFactory.swift */; };
 		B7A829742677F530002FAD45 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829732677F530002FAD45 /* SearchRouter.swift */; };
 		B7A829762677F576002FAD45 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829752677F576002FAD45 /* SearchInteractor.swift */; };
+		B7A82978267910AF002FAD45 /* MusicSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82977267910AF002FAD45 /* MusicSearchRouter.swift */; };
+		B7A8297A26791140002FAD45 /* MusicSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8297926791140002FAD45 /* MusicSearchInteractor.swift */; };
+		B7A8297D2679314E002FAD45 /* NetworkCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8297C2679314E002FAD45 /* NetworkCache.swift */; };
+		B7A829802679520D002FAD45 /* MusicPlayerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8297F2679520D002FAD45 /* MusicPlayerBuilder.swift */; };
+		B7A829842679588B002FAD45 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829832679588B002FAD45 /* MusicPlayerViewModel.swift */; };
+		B7A82987267958A4002FAD45 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82986267958A4002FAD45 /* MusicPlayerView.swift */; };
+		B7A82989267958B1002FAD45 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82988267958B1002FAD45 /* MusicPlayerViewController.swift */; };
+		B7A8298B267A4EB3002FAD45 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8298A267A4EB3002FAD45 /* Observable.swift */; };
+		B7A8298E267A9BAE002FAD45 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8298D267A9BAE002FAD45 /* MusicPlayer.swift */; };
 		C28C96DB36E79D637A8DED1C /* Pods_iOSArchitecturesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEA6AF9F424A0D5873D2723 /* Pods_iOSArchitecturesDemo.framework */; };
 		E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D2922034A3350011E01A /* AppDelegate.swift */; };
 		E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D2942034A3350011E01A /* SearchViewController.swift */; };
@@ -82,6 +91,15 @@
 		B7A829602673CDBA002FAD45 /* MusicCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellModelFactory.swift; sourceTree = "<group>"; };
 		B7A829732677F530002FAD45 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		B7A829752677F576002FAD45 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		B7A82977267910AF002FAD45 /* MusicSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchRouter.swift; sourceTree = "<group>"; };
+		B7A8297926791140002FAD45 /* MusicSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchInteractor.swift; sourceTree = "<group>"; };
+		B7A8297C2679314E002FAD45 /* NetworkCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCache.swift; sourceTree = "<group>"; };
+		B7A8297F2679520D002FAD45 /* MusicPlayerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerBuilder.swift; sourceTree = "<group>"; };
+		B7A829832679588B002FAD45 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
+		B7A82986267958A4002FAD45 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		B7A82988267958B1002FAD45 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
+		B7A8298A267A4EB3002FAD45 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B7A8298D267A9BAE002FAD45 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		E0E1D28F2034A3350011E01A /* iOSArchitecturesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSArchitecturesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E1D2922034A3350011E01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E1D2942034A3350011E01A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +168,8 @@
 				B7A8294E2673AFB4002FAD45 /* Presenter */,
 				B7A8294D2673AFA6002FAD45 /* Builder */,
 				B7A8294F2673AFC8002FAD45 /* View */,
+				B7A82977267910AF002FAD45 /* MusicSearchRouter.swift */,
+				B7A8297926791140002FAD45 /* MusicSearchInteractor.swift */,
 			);
 			path = "Music Search";
 			sourceTree = "<group>";
@@ -179,6 +199,41 @@
 				B7A8295E2673CA1C002FAD45 /* MusicTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B7A8297B267930FA002FAD45 /* NetworkCache */ = {
+			isa = PBXGroup;
+			children = (
+				B7A8297C2679314E002FAD45 /* NetworkCache.swift */,
+			);
+			path = NetworkCache;
+			sourceTree = "<group>";
+		};
+		B7A8297E267951EE002FAD45 /* Music Player */ = {
+			isa = PBXGroup;
+			children = (
+				B7A8298526795898002FAD45 /* View */,
+				B7A8297F2679520D002FAD45 /* MusicPlayerBuilder.swift */,
+				B7A829832679588B002FAD45 /* MusicPlayerViewModel.swift */,
+			);
+			path = "Music Player";
+			sourceTree = "<group>";
+		};
+		B7A8298526795898002FAD45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7A82986267958A4002FAD45 /* MusicPlayerView.swift */,
+				B7A82988267958B1002FAD45 /* MusicPlayerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B7A8298C267A9B9A002FAD45 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B7A8298D267A9BAE002FAD45 /* MusicPlayer.swift */,
+			);
+			path = MusicPlayer;
 			sourceTree = "<group>";
 		};
 		DB95456C2F2DCD400ABCE8E9 /* Frameworks */ = {
@@ -221,6 +276,7 @@
 		E0E1D2A52034A3560011E01A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				B7A8297E267951EE002FAD45 /* Music Player */,
 				B7A8294C2673AF8E002FAD45 /* Music Search */,
 				E0E1D2A62034A36C0011E01A /* Search */,
 				E0E1D2A72034A3780011E01A /* AppDetail */,
@@ -353,6 +409,7 @@
 				F8A1E03E224850E500FE6448 /* Monads */,
 				E0E1D359203ADCE10011E01A /* NetworkManager */,
 				E0E1D3D2203C4A850011E01A /* Extensions */,
+				B7A8298A267A4EB3002FAD45 /* Observable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -368,6 +425,8 @@
 		F8A1E0402248511B00FE6448 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B7A8298C267A9B9A002FAD45 /* MusicPlayer */,
+				B7A8297B267930FA002FAD45 /* NetworkCache */,
 				E0E1D385203AE3E00011E01A /* AppStartManager */,
 				E0E1D393203AE5AA0011E01A /* iTunesSearchService */,
 				E0E1D39D203AE7230011E01A /* ImageDownloader */,
@@ -528,21 +587,29 @@
 				E0E1D399203AE62E0011E01A /* ITunesApp.swift in Sources */,
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
 				B7A8294B26717B0D002FAD45 /* AppDetailFullScreenshotsViewController.swift in Sources */,
+				B7A8298B267A4EB3002FAD45 /* Observable.swift in Sources */,
 				B7A82931267002DF002FAD45 /* SearchPresenter.swift in Sources */,
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
 				B7A829572673B226002FAD45 /* MusicSearchControllerInterface.swift in Sources */,
 				F8A1E03C2248382F00FE6448 /* Monads.swift in Sources */,
+				B7A82989267958B1002FAD45 /* MusicPlayerViewController.swift in Sources */,
+				B7A8297D2679314E002FAD45 /* NetworkCache.swift in Sources */,
 				B7A8293F2670D684002FAD45 /* AppDetailModel.swift in Sources */,
 				B7A829612673CDBA002FAD45 /* MusicCellModelFactory.swift in Sources */,
 				B7A8292E266FF721002FAD45 /* AppDetailHeaderViewController.swift in Sources */,
 				B7A829412670FBCF002FAD45 /* AppDetailScreenshotsViewController.swift in Sources */,
 				B7A829552673B1AB002FAD45 /* MusicSearchPresenter.swift in Sources */,
+				B7A829802679520D002FAD45 /* MusicPlayerBuilder.swift in Sources */,
 				B7A8293726700CC3002FAD45 /* SearchModuleBuilder.swift in Sources */,
 				B7A8294926716571002FAD45 /* AppDetailSingleScreenshotViewController.swift in Sources */,
+				B7A8298E267A9BAE002FAD45 /* MusicPlayer.swift in Sources */,
 				B7A829352670045F002FAD45 /* SearchViewOutput.swift in Sources */,
 				E0E1D3D4203C4AA50011E01A /* UIColor+Extensions.swift in Sources */,
+				B7A8297A26791140002FAD45 /* MusicSearchInteractor.swift in Sources */,
+				B7A829842679588B002FAD45 /* MusicPlayerViewModel.swift in Sources */,
 				B7A8292C266FF63D002FAD45 /* AppDetailHeaderView.swift in Sources */,
 				B7A8293B26702F4A002FAD45 /* AppDetailReleaseInfoViewController.swift in Sources */,
+				B7A82978267910AF002FAD45 /* MusicSearchRouter.swift in Sources */,
 				E0E1D3D1203C48D70011E01A /* AppDetailViewController.swift in Sources */,
 				B7A829532673B133002FAD45 /* MusicSearchViewController.swift in Sources */,
 				B7A829512673B003002FAD45 /* MusicSearchModuleBuilder.swift in Sources */,
@@ -566,6 +633,7 @@
 				B7A8294526710732002FAD45 /* AppScreenshotsCell.swift in Sources */,
 				B7A829432670FBE2002FAD45 /* AppDetailScreenshotsView.swift in Sources */,
 				B7A8293D26702F65002FAD45 /* AppDetailReleaseInfoView.swift in Sources */,
+				B7A82987267958A4002FAD45 /* MusicPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
