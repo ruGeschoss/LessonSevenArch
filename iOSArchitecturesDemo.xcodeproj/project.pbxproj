@@ -37,6 +37,7 @@
 		B7A8297D2679314E002FAD45 /* NetworkCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8297C2679314E002FAD45 /* NetworkCache.swift */; };
 		B7A829842679588B002FAD45 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A829832679588B002FAD45 /* MusicPlayerViewModel.swift */; };
 		B7A82987267958A4002FAD45 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82986267958A4002FAD45 /* MusicPlayerView.swift */; };
+		B7A82989267958B1002FAD45 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82988267958B1002FAD45 /* MusicPlayerViewController.swift */; };
 		B7A8298B267A4EB3002FAD45 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8298A267A4EB3002FAD45 /* Observable.swift */; };
 		B7A8298E267A9BAE002FAD45 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8298D267A9BAE002FAD45 /* MusicPlayer.swift */; };
 		C28C96DB36E79D637A8DED1C /* Pods_iOSArchitecturesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEA6AF9F424A0D5873D2723 /* Pods_iOSArchitecturesDemo.framework */; };
@@ -94,6 +95,7 @@
 		B7A8297C2679314E002FAD45 /* NetworkCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCache.swift; sourceTree = "<group>"; };
 		B7A829832679588B002FAD45 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
 		B7A82986267958A4002FAD45 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		B7A82988267958B1002FAD45 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		B7A8298A267A4EB3002FAD45 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B7A8298D267A9BAE002FAD45 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		E0E1D28F2034A3350011E01A /* iOSArchitecturesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSArchitecturesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A82986267958A4002FAD45 /* MusicPlayerView.swift */,
+				B7A82988267958B1002FAD45 /* MusicPlayerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
 				B7A829572673B226002FAD45 /* MusicSearchControllerInterface.swift in Sources */,
 				F8A1E03C2248382F00FE6448 /* Monads.swift in Sources */,
+				B7A82989267958B1002FAD45 /* MusicPlayerViewController.swift in Sources */,
 				B7A8297D2679314E002FAD45 /* NetworkCache.swift in Sources */,
 				B7A8293F2670D684002FAD45 /* AppDetailModel.swift in Sources */,
 				B7A829612673CDBA002FAD45 /* MusicCellModelFactory.swift in Sources */,
